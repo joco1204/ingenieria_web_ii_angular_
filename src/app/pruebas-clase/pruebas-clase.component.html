@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <header class="d-flex align-items-center mb-4">
+        <h1 class="me-auto text-primary">
+            <i class="bi bi-house-door-fill"></i> Homes
+        </h1>
+        <div class="d-flex">
+            <input
+                type="text"
+                class="form-control me-2"
+                placeholder="Filter by city"
+                [(ngModel)]="searchQuery"
+            />
+            <button class="btn btn-primary" (click)="filterHomes()">Search</button>
+        </div>
+    </header>
+
+    <div class="row g-4">
+        <div
+            class="col-md-4 col-lg-3"
+            *ngFor="let home of filteredHomes"
+        >
+            <div class="card shadow-sm">
+                <img
+                    [src]="home.image"
+                    class="card-img-top img-fluid"
+                    [alt]="home.name"
+                />
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ home.name }}</h5>
+                    <p class="card-text text-muted">
+                        <i class="bi bi-geo-alt-fill"></i> {{ home.location }}
+                    </p>
+                    <a href="#" class="btn btn-link text-primary p-0">Learn More ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
